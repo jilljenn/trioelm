@@ -366,22 +366,34 @@ function strNorm(str) {
 // quick search regex
 var qsRegex;
 var qsTag = '*';
+var videos;
 
 function searchFilter(elem) {
     var condition = qsRegex ? (strNorm(elem.querySelector(".title").textContent).match(qsRegex) || strNorm(elem.querySelector(".work").textContent).match(qsRegex)) : true;
     return condition;
 }
 
+function initFilter() {
+    videosElts = document.querySelector('#videos');
+    videos = new Isotope(videosElts, {
+        itemSelector: '.column',
+        layoutMode: 'fitRows',
+        cellsByRow: {
+            columnWidth: 300,
+            rowHeight: 300
+        }
+    });
+}
+
 videosElts = document.querySelector('#videos');
-console.log(videosElts);
-videos = new Isotope(videosElts, {
-    itemSelector: '.column',
-    layoutMode: 'fitRows',
-    cellsByRow: {
-        columnWidth: 300,
-        rowHeight: 300
-    }
-});
+    videos = new Isotope(videosElts, {
+        itemSelector: '.column',
+        layoutMode: 'fitRows',
+        cellsByRow: {
+            columnWidth: 300,
+            rowHeight: 300
+        }
+    });
 
 var filtersElem = document.querySelector('.filter-btn-group');
 filtersElem.addEventListener( 'click', function( event ) {

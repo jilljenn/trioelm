@@ -36,13 +36,16 @@ var titles = [
   'Ragnarok Online 2 - Yoru',
   'RahXephon - Hemisphere',
   'Record of Lodoss War OP - Adesso e fortuna',
+  'Re:Zero OP - Redo',
+  'Re:Zero OP - Paradisus-Paradoxum',
   'Shinsekai yori ED - Wareta Ringo',
   'Steins;Gate - Hacking to the Gate',
   'Terror in Resonance - is',
+  'Terror in Resonance ED - Dare ka, Umi wo',
   'Tokyo Ghoul - Glassy Sky',
-  'Utawarerumono - Musouka',
+  'Utawarerumono OP - Musouka',
   'Wolf\'s Rain ED - Gravity',
-  'Your Lie in April OP - Hikaru Nara'
+  'Your Lie in April OP - Hikaru Nara',
 ];
 
 for(i = 0; i < titles.length; i++) {
@@ -60,13 +63,18 @@ for(i = 0; i < titles.length; i++) {
   document.getElementById('grid').appendChild(contestant);
 }
 
-var iso = new Isotope('#grid', {
-  itemSelector: '.grid-item',
-  layoutMode: 'vertical',
-  getSortData: {
-    score: '.score parseInt'
-  },
-});
+var iso;
+
+function initRanking() {
+  grid = document.querySelector('#grid');
+  iso = new Isotope(grid, {
+    itemSelector: '.grid-item',
+    layoutMode: 'vertical',
+    getSortData: {
+      score: '.score parseInt'
+    },
+  });
+}
 
 function rerank() {
   iso.updateSortData();

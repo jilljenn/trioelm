@@ -1,13 +1,19 @@
   function init()
   {
-    document.myform.url.value = "ws://trioelm.com:4248/"
+    /* document.myform.url.value = "ws://trioelm.com:4248/"
     document.myform.inputtext.value = "1"
-    document.myform.disconnectButton.disabled = true;
+    document.myform.disconnectButton.disabled = true; */
+    initRanking();
+    initFilter();
+    doConnect();
+    videos.arrange({ filter: '.featured' });
+    // document.querySelector('.quicksearch').focus();
   }
 
   function doConnect()
   {
-    websocket = new WebSocket(document.myform.url.value, ['vote']);
+    // websocket = new WebSocket(document.myform.url.value, ['vote']);
+    websocket = new WebSocket('ws://trioelm.com:4248/', ['vote']);
     websocket.onopen = function(evt) { onOpen(evt) };
     websocket.onclose = function(evt) { onClose(evt) };
     websocket.onmessage = function(evt) { onMessage(evt) };
@@ -17,15 +23,15 @@
   function onOpen(evt)
   {
     writeToScreen("connected\n");
-    document.myform.connectButton.disabled = true;
-    document.myform.disconnectButton.disabled = false;
+    /* document.myform.connectButton.disabled = true;
+    document.myform.disconnectButton.disabled = false; */
   }
 
   function onClose(evt)
   {
     writeToScreen("disconnected\n");
-    document.myform.connectButton.disabled = false;
-    document.myform.disconnectButton.disabled = true;
+    /* document.myform.connectButton.disabled = false;
+    document.myform.disconnectButton.disabled = true; */
   }
 
   function onMessage(evt)
@@ -43,9 +49,8 @@
 
     websocket.close();
 
-    document.myform.connectButton.disabled = false;
-    document.myform.disconnectButton.disabled = true;
-
+    /* document.myform.connectButton.disabled = false;
+    document.myform.disconnectButton.disabled = true; */
   }
 
   function doSend(message)
@@ -57,9 +62,8 @@
   function writeToScreen(message)
   {
     console.log(message);
-    document.myform.outputtext.value += message
-    document.myform.outputtext.scrollTop = document.myform.outputtext.scrollHeight;
-
+    /* document.myform.outputtext.value += message
+    document.myform.outputtext.scrollTop = document.myform.outputtext.scrollHeight; */
   }
 
   window.addEventListener("load", init, false);

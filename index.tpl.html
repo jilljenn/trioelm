@@ -1,11 +1,22 @@
 {% include "header.html" %}
 
-<body onload="document.querySelector('.quicksearch').focus();">
+<body onload="doConnect();">
 
   {% include "banner.html" %}
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <div class="section">
+    <div class="container">
+      <h2>Votez en cliquant sur vos chansons préférées<br />pour influencer notre live !</h2>
+        <a href="https://twitter.com/intent/tweet?text=Votez pour les chansons du Trio ELM ! En concert dimanche 5 mars à 15 h sur YouTube&amp;url=http://trioelm.com&amp;via=trioelm&amp;related=" class="button button-primary">Partager sur Twitter</a>
+      <a href="https://facebook.com/sharer.php?u=http://trioelm.com" class="button button-primary">Partager sur Facebook</a>
+      <hr />
+      <ul id="grid">
+      </ul>
+    </div>
+  </div>
 
   <div class="section values">
     <div class="container">
