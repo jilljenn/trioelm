@@ -15,7 +15,8 @@
       {% if concert.title == 'Concert Retrogaming & Anime' %}
         <a href="/img/poster.jpg" target="_blank"><img src="/img/poster.png" alt="Poster du concert" style="border: 1px solid black" /></a>
         <a href="/img/FONDCONCERTDESU.jpg" target="_blank"><img src="/img/FONDCONCERTDESU.min.jpg" alt="Fond du concert" /></a><br />
-        Le <a href="https://www.youtube.com/playlist?list=PLPtDOWi65kraB9AgUkcN9NkwIsiT6NRnb">concert complet</a> est disponible sur YouTube. Bon visionnage !
+        <p>Le concert complet est disponible sur YouTube. Bon visionnage !</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLPtDOWi65kraB9AgUkcN9NkwIsiT6NRnb" frameborder="0" allowfullscreen></iframe>
       {% elif concert.description %}
         {{ concert.description }}
       {% endif %}

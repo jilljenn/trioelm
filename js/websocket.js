@@ -3,9 +3,9 @@
     /* document.myform.url.value = "ws://trioelm.com:4248/"
     document.myform.inputtext.value = "1"
     document.myform.disconnectButton.disabled = true; */
-    // initRanking();
+    initRanking();
     initFilter();
-    // doConnect();
+    doConnect();
     videos.arrange({ filter: '.featured' });
     // document.querySelector('.quicksearch').focus();
   }
